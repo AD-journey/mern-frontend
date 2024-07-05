@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../Backend"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../ctt"
+		}
+	],
+	"settings": {
+		"C_Cpp.default.customConfigurationVariables": {
+
+		},
+		"tailwindCSS.experimental.configFile": null
+	}
+}
