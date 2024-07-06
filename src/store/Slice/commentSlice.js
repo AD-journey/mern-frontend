@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axiosInstance from "../../helper/axios";
+import axiosInstance from "../../helper/axios.js";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../../constant";
+import { BASE_URL } from "../../constant.js";
 
 
 const initialState = {
@@ -62,18 +62,16 @@ export const deleteAComment = createAsyncThunk(
 export const getVideoComments = createAsyncThunk(
     "getVideoComments",
     async ({ videoId, page, limit }) => {
-        try {
         const url = new URL(`${BASE_URL}/v1/comment/${videoId}`);
         if (page) url.searchParams.set("page", page);
         if (limit) url.searchParams.set("limit", limit);
 
-      
+        try {
+            
             const response = await axiosInstance.get(url);
-           
             return response.data.data;
-           
         } catch (error) {
-            toast.error("not getting comments");
+            toast.error(error?.response?.data?.error);
             throw error;
         }
     }

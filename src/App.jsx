@@ -4,7 +4,7 @@ import { AuthLayout, Login, SignUp } from "./components/Index";
 import { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { getCurrentUser } from "./store/Slice/authslice";
-
+// import { getVideoComments } from "./store/Slice/commentSlice";
 import {
     History,
     Channel,
@@ -36,6 +36,7 @@ function App() {
 
     return (
         <>
+        {/* {console.log(getVideoComments())} */}
             <Routes>
                 <Route
                     path="/"

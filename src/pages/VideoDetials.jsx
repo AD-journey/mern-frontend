@@ -26,7 +26,7 @@ function VideoDetail() {
     const loading = useSelector((state) => state.comment?.loading);
     const [page, setPage] = useState(1);
 
-    const channel = useSelector((state) => state.user?.profileData);
+    // const channel = useSelector((state) => state.user?.profileData);
     
     useEffect(() => {
         if (videoId) {
@@ -46,7 +46,7 @@ function VideoDetail() {
     
     return (
         <>
-        
+       {console.log(comments)}
             <Navbar />
             <Video
                 src={video?.videoFile?.url}
@@ -82,14 +82,14 @@ function VideoDetail() {
                     {comments?.map((comment) => (
                         <CommentsList
                             key={comment?._id}
-                            avatar={comment?.owner?.avatar}
+                            avatar={comment?.ownerdetails?.avatar}
                             commentId={comment?._id}
                             content={comment?.content}
                             createdAt={comment?.createdAt}
-                            fullName={comment?.owner?.fullName}
+                            fullName={comment?.ownerdetails?.fullName}
                             isLiked={comment?.isLiked}
                             likesCount={comment?.likesCount}
-                            username={comment?.owner?.username}
+                            username={comment?.ownerdetails?.username}
                         />
                     ))}
                     {loading && (

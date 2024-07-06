@@ -48,6 +48,7 @@ function CommentsList({
 
     return (
         <>
+        {console.log(authUsername)}
             <div className="text-white w-full flex justify-start items-center sm:gap-5 gap-3 border-b border-slate-600 p-3 sm:p-5">
                 <div className="w-12">
                     <img
@@ -84,10 +85,10 @@ function CommentsList({
                                                 className="hover:opacity-50 px-5 cursor-pointer border-b border-slate-600"
                                                 onClick={() =>
                                                     setEditState(
-                                                        (prevState) => ({
-                                                            ...prevState,
+                                                        (prev) => ({
+                                                            ...prev,
                                                             editing:
-                                                                !prevState.editing,
+                                                                !prev.editing,
                                                             isOpen: false,
                                                         })
                                                     )

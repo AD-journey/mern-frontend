@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Edit({initialContent, onCancel, onSave }){
-       
+    const [editedContent, setEditedContent] = useState(initialContent);
     const handleSave = () => {
         onSave(editedContent);
     };

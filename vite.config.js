@@ -6,12 +6,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/v1': {
-        target:'https://mern-backend-4-oqgo.onrender.com/api',
-        changeOrigin: true,
-
-      }
+      '/v1':'https://mern-backend-ejgg.onrender.com/api'
       
     }
   }
 })
+    
