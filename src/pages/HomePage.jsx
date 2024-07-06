@@ -28,6 +28,7 @@ function HomePage() {
 
     return (
         <Container>
+            {console.log(videos)}
             <InfiniteScroll
                 fetchMore={fetchMoreVideos}
                 hasNextPage={hasNextPage}

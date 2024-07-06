@@ -3,9 +3,10 @@ import axiosInstance from "../../helper/axios";
 import toast from "react-hot-toast";
 import { BASE_URL } from "../../constant";
 
+
 const initialState = {
     loading: false,
-    comments: [],
+    comments:[],
     totalComments: null,
     hasNextPage: false,
 };
@@ -61,15 +62,18 @@ export const deleteAComment = createAsyncThunk(
 export const getVideoComments = createAsyncThunk(
     "getVideoComments",
     async ({ videoId, page, limit }) => {
-        const url = new URL(`${BASE_URL}/comment/${videoId}`);
+        try {
+        const url = new URL(`${BASE_URL}/v1/comment/${videoId}`);
         if (page) url.searchParams.set("page", page);
         if (limit) url.searchParams.set("limit", limit);
 
-        try {
+      
             const response = await axiosInstance.get(url);
+           
             return response.data.data;
+           
         } catch (error) {
-            toast.error(error?.response?.data?.error);
+            toast.error("not getting comments");
             throw error;
         }
     }

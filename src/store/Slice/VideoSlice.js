@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axiosInstance from "../../helper/axios";
 import toast from "react-hot-toast";
-import { BASE_URL } from "../../constant.js";
+import { BASE_URL } from "../../constant";
+
 
 const initialState = {
     loading: false,
@@ -18,7 +19,7 @@ const initialState = {
 export const getAllvideos = createAsyncThunk("getAllVideos",
     async ({ userId, sortBy, sortType, query, page, limit }) => {
          try {
-            const url = new URL(`https://mern-backend-ejgg.onrender.com/api/v1/video`);
+            const url = new URL(`${BASE_URL}/v1/video`);
 
             if(userId) url.searchParams.set("userId" , userId)
             if (query) url.searchParams.set("query", query);

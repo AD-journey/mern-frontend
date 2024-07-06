@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/v1': {
-        target:'https://mern-backend-ejgg.onrender.com/api',
+        target:'https://mern-backend-4-oqgo.onrender.com/api',
         changeOrigin: true,
 
       }

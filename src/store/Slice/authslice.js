@@ -90,14 +90,10 @@ export const changePassword = createAsyncThunk("changePassword" , async(data)=>{
 })
 export const getCurrentUser = createAsyncThunk("getCurrentUser" , async()=>{
             
-   try {
+   
     const response = await axiosInstance.get("/v1/users/current-user");
     return response.data.data;
-   } catch (error) {
-    toast.error("no current user");
-    throw error;
-   }
-   
+  
 })   
 
 export const updateUserAvatar = createAsyncThunk("updateUserAvatar"  , async(avatar)=>{

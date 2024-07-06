@@ -27,7 +27,7 @@ function VideoDetail() {
     const [page, setPage] = useState(1);
 
     const channel = useSelector((state) => state.user?.profileData);
-
+    
     useEffect(() => {
         if (videoId) {
             dispatch(getVideoById({ videoId }));
@@ -46,6 +46,7 @@ function VideoDetail() {
     
     return (
         <>
+        
             <Navbar />
             <Video
                 src={video?.videoFile?.url}
